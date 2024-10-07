@@ -5,13 +5,16 @@ M=int(input().strip())
 for i in range(M):
   cmd=input().split()
 
-  if cmd[0]=='L' and l_txt:
-    r_txt.append(l_txt.pop())
-  elif cmd[0]=='D' and r_txt:
-    l_txt.append(r_txt.pop())
-  elif cmd[0]=='B' and l_txt:
-    l_txt.pop()
-  elif cmd[0]=='P':
+  if 'L' in cmd:
+    if l_txt:
+      r_txt.append(l_txt.pop())
+  elif 'D' in cmd:
+    if r_txt:
+      l_txt.append(r_txt.pop())
+  elif 'B' in cmd:
+    if l_txt:
+      l_txt.pop()
+  elif 'P' in cmd:
     l_txt.append(cmd[1])
 
 l_txt.extend(reversed(r_txt))
